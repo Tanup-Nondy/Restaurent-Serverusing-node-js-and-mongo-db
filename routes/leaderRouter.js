@@ -62,7 +62,7 @@ leaderRouter.route('/:leaderId')
     res.end('POST operation not supported on /leaders/'+ req.params.leaderId);
 })
 .put(authenticate.verifyUser,(req,res,next)=>{
-    Leaders.findByIdAndUpdate(leader._id,{
+    Leaders.findByIdAndUpdate(req.params.leaderId,{
         $set:{description:'Updated description'}
     },{ new:true })
     .then((leader)=>{

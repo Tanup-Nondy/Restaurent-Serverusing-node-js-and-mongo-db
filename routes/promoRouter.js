@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose=require('mongoose');
 const Promos=require('../models/promotions');
 var authenticate=require('../authenticate');
-
+ 
 
 var promoRouter = express.Router();
 var jsonParser = bodyParser.json();
@@ -62,7 +62,7 @@ promoRouter.route('/:promoId')
     res.end('POST operation not supported on /promotions/'+ req.params.promoId);
 })
 .put(authenticate.verifyUser,(req,res,next)=>{
-    Promos.findByIdAndUpdate(promo._id,{
+    Promos.findByIdAndUpdate(req.params.promoId,{
         $set:{description:'Updated description'}
     },{ new:true })
     .then((promo)=>{
