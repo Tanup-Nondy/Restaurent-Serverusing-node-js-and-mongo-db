@@ -1,0 +1,3 @@
+openssl genrsa -out privateKey.pem 4096
+openssl req -new -key privatekey.pem -out cert.csr
+openssl x509 -req -in cert.csr -signkey privatekey.pem -out certificate.pem
