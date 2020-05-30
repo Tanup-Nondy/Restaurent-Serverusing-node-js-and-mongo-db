@@ -15,6 +15,7 @@ var dishRouter=require('./routes/dishesRouter');
 var leaderRouter=require('./routes/leaderRouter');
 var promoRouter=require('./routes/promoRouter');
 var favouritesRouter=require('./routes/favouritesRouter');
+var commentsRouter=require('./routes/commentsRouter');
 var uploadRouter=require('./routes/uploadRouter');
 
 const mongoose=require('mongoose');
@@ -56,6 +57,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/dishes',dishRouter);
+app.use('/comments',commentsRouter);
 app.use('/leaders',leaderRouter);
 app.use('/promos',promoRouter);
 app.use('/favourites',favouritesRouter);
